@@ -109,6 +109,8 @@
   max-width: 352px;
   width: 100%;
   padding: 10px;
+  margin-bottom: -10em;
+    margin-left: 17em;
 }
 
 .banner-text-wrapper {
