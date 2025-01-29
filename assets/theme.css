@@ -347,10 +347,9 @@
 }
 
 .featured-product__accordion {
-argin-top: 62px;
-    width: 100%;
-    max-width: 550px;
-}
+ display: grid;
+  place-items: center;      /* Centers both horizontally and vertically */
+    margin-top: 40px;
 }
 
 .featured-product__accordion-trigger {
