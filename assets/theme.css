@@ -357,6 +357,7 @@ footer-section {
   .footer-contact {
     font-weight: 700;
     margin: 0;
+      font: 700 14px/1.5 Montserrat, sans-serif;
   }
 
   .footer-email {
@@ -376,6 +377,7 @@ footer-section {
   .footer-links a {
     color: #2bd896;
     text-decoration: none;
+      font: 700 14px/1.5 Montserrat, sans-serif;
   }
 
 
