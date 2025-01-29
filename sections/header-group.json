@@ -13,7 +13,9 @@
   "sections": {
     "header": {
       "type": "header",
-      "settings": {}
+      "settings": {
+        "logo": "shopify://shop_images/fce88aeb17d2d7bc058376c5dae1dfe5da682f407399e3c277939467893220a1.svg"
+      }
     }
   },
   "order": [
