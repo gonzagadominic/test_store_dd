@@ -157,7 +157,9 @@
   }
 
   .banner-section{
-    height: 200px;
+        height: 250px;
+        min-height: 50vh;
+        overflow: hidden;
   }
 
 .cta-button {
