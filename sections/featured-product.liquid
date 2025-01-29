@@ -64,7 +64,6 @@
             </span>
           </button>
         </form>
-        <pre>{{    section.settings.product.metafields | json }}</pre> haha
         <div class="featured-product__accordion">
           <button 
             class="featured-product__accordion-trigger"
@@ -95,7 +94,7 @@
             class="featured-product__accordion-content"
             hidden
           >
-            {{ product.metafields.namespace1.delivery_information }}
+            {{    section.settings.product.metafields.namespace1.delivery_information }}
           </div>
         </div>
       </div>
