@@ -9,6 +9,7 @@
  */
 {
   "current": {
+    "logo": "shopify://shop_images/fce88aeb17d2d7bc058376c5dae1dfe5da682f407399e3c277939467893220a1.svg",
     "logo_width": 90,
     "type_header_font": "assistant_n4",
     "heading_scale": 100,
@@ -189,8 +190,23 @@
         "settings": {
           "color_scheme": "scheme-1"
         }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify://shop_images/fce88aeb17d2d7bc058376c5dae1dfe5da682f407399e3c277939467893220a1.svg"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "contact_email": "hello@shopify.com",
+          "copyright_text": "Copyright 2023 Drive Digital. All rights reserved.",
+          "footer_menu": ""
+        }
       }
-    }
+    },
+    "content_for_index": []
   },
   "presets": {
     "Default": {
