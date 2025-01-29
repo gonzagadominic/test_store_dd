@@ -1,194 +1,246 @@
 {% assign product = section.settings.product %}
- <div class="product-container">
-    <div class="product-grid">
-      <div class="product-image-column">
-        <div class="product-image" role="img" aria-label="Featured product image"></div>
+<div class="product-section">
+  <div class="product-container">
+    <div class="product-layout">
+      <div class="product-image-col">
+        <div class="product-image" role="img" aria-label="Featured Product Image"></div>
       </div>
-      <div class="product-info-column">
-        <div class="product-details">
-          <div class="product-header">
+      <div class="product-info-col">
+        <div class="product-info-wrapper">
+          <div class="product-details">
             <h2 class="product-name">Featured Product name</h2>
             <div class="price-container">
               <div class="price-wrapper">
-                <span>$12</span>
-                <span class="price-old">$15</span>
+                <span class="price">$12<span style="color: #d9d9d9">$15</span></span>
+                <div class="price-divider"></div>
               </div>
-              <span class="price-save">save $3</span>
+              <span class="savings">save $3</span>
             </div>
             <p class="product-description">
               Place the product descipription here.<br>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis augue tempus, vestibulum neque eu, tempor ex. Quisque pulvinar volutpat mi, vitae aliquet nisl tincidunt vitae. Nulla porta massa neque, vel tincidunt ante vestibulum quis. Sed feugiat auctor ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis augue tempus, vestibulum neque eu,
+              tempor ex. Quisque pulvinar volutpat mi, vitae aliquet nisl tincidunt vitae. Nulla porta massa neque, vel
+              tincidunt ante vestibulum quis. Sed feugiat auctor ipsum. Orci varius natoque penatibus et magnis dis
+              parturient montes, nascetur ridiculus mus.
             </p>
           </div>
           <div class="tag-container">
             <span>tag 1</span>
             <span>tag 2</span>
           </div>
-          <button class="add-cart-button" tabindex="0">ADD TO CART</button>
+          <button class="add-cart-btn">ADD TO CART</button>
         </div>
       </div>
     </div>
   </div>
 
   <div class="accordion-section">
-    <div class="accordion-header" tabindex="0" role="button">
-      <h3 class="accordion-title">MATERIALS</h3>
-      <i class="ti ti-chevron-down" aria-hidden="true"></i>
+    <button class="accordion-header" aria-expanded="false" aria-controls="materials-content">
+      <span class="accordion-title">MATERIALS</span>
+      <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/62a59bcd4fd3ced9c924d1c8a7311edc55b89104ff785822e0fe2436bf735ec1?placeholderIfAbsent=true&apiKey=874c8ab8215f4da29d36330b51c2d70b"
+        class="accordion-icon"
+        alt=""
+      >
+    </button>
+    <div id="materials-content" class="accordion-content" hidden>
+      <div class="accordion-text"></div>
     </div>
-    <div class="accordion-content">
-      Body: The main body of the EcoStream Water Bottle is made from 100% recycled stainless steel, providing a durable and rust-resistant solution for daily hydration needs. This choice of material ensures a long product lifecycle and reduces the need for virgin raw materials.<br><br>
-      Lid: Composed of BPA-free, food-grade polypropylene (PP5), our lids are designed for safety and longevity. They are engineered to be leak-proof and easy to clean, ensuring that your drinking experience is both secure and convenient.
-    </div>
-    <div class="accordion-header" tabindex="0" role="button">
-      <h3 class="accordion-title">Delivery Information</h3>
-      <i class="ti ti-chevron-down" aria-hidden="true"></i>
-    </div>
-  </section>
+    <button class="accordion-header" aria-expanded="false" aria-controls="delivery-content">
+      <span class="accordion-title">Delivery Information</span>
+      <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/6cf83719a47095859361cf62bef70c2afe08b49ff8053d9ca4c0f57b5eb3a74f?placeholderIfAbsent=true&apiKey=874c8ab8215f4da29d36330b51c2d70b"
+        class="accordion-icon"
+        alt=""
+      >
+    </button>
+  </div>
+</div>
 <style>
+  .product-section {
+      display: flex;
+      margin-top: 79px;
+      width: 1120px;
+      max-width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .product-container {
-    display: flex;
-    margin-top: 79px;
-    width: 1120px;
-    max-width: 100%;
-    padding: 0 20px;
-    flex-direction: column;
-    align-items: center;
-  }
-  .product-grid {
-    gap: 20px;
-    display: flex;
-    width: 100%;
-  }
-  @media (max-width: 991px) {
-    .product-grid {
+      width: 100%;
+    }
+
+    .product-layout {
+      gap: 20px;
+      display: flex;
+    }
+
+    .product-image-col {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 59%;
+    }
+
+    .product-image {
+      background-color: #d9d9d9;
+      width: 645px;
+      max-width: 100%;
+      height: 379px;
+      margin: 0 auto;
+    }
+
+    .product-info-col {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 41%;
+      margin-left: 20px;
+    }
+
+    .product-info-wrapper {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-self: stretch;
+      align-items: start;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      margin: auto 0;
+    }
+
+    .product-details {
+      align-self: stretch;
+      display: flex;
+      width: 100%;
+      max-width: 455px;
+      flex-direction: column;
+      font-family: Poppins, sans-serif;
+    }
+
+    .product-name {
+      color: #000;
+      font-size: 22px;
+      text-transform: uppercase;
+    }
+
+    .price-container {
+      display: flex;
+      margin-top: 16px;
+      width: 109px;
+      max-width: 100%;
+      gap: 7px;
+    }
+
+    .price-wrapper {
+      display: flex;
+      font-size: 14px;
+      color: #000;
+      text-transform: uppercase;
+    }
+
+    .price {
+      flex-grow: 1;
+    }
+
+    .price-divider {
+      align-self: start;
+      margin-top: 10px;
+      width: 30px;
+      height: 1px;
+      border: 1px solid #d9d9d9;
+    }
+
+    .savings {
+      color: #c6474b;
+      font-size: 10px;
+      margin: auto 0;
+    }
+
+    .product-description {
+      color: #000;
+      letter-spacing: 0.7px;
+      margin-top: 16px;
+      font: 400 14px/20px Montserrat, sans-serif;
+    }
+
+    .tag-container {
+      display: flex;
+      margin-top: 22px;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      color: #818181;
+      font-weight: 400;
+      letter-spacing: 0.7px;
+    }
+
+    .add-cart-btn {
+      border-radius: 5px;
+      background-color: #c6474b;
+      margin-top: 22px;
+      width: 236px;
+      color: #fff;
+      text-transform: uppercase;
+      padding: 10px;
+    }
+
+    .accordion-section {
+      display: flex;
+      margin-top: 62px;
+      width: 550px;
+      max-width: 100%;
       flex-direction: column;
     }
-  }
-  .product-image-column {
-    display: flex;
-    flex-direction: column;
-    width: 59%;
-  }
-  @media (max-width: 991px) {
-    .product-image-column {
-      width: 100%;
-    }
-  }
-  .product-image {
-    background-color: #d9d9d9;
-    display: flex;
-    width: 100%;
-    height: 379px;
-  }
-  .product-info-column {
-    display: flex;
-    flex-direction: column;
-    width: 41%;
-  }
-  @media (max-width: 991px) {
-    .product-info-column {
-      width: 100%;
-    }
-  }
-  .product-details {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    font-family: Montserrat, sans-serif;
-    font-weight: 700;
-  }
-  .product-header {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    font-family: Poppins, sans-serif;
-  }
-  .product-name {
-    color: #000;
-    font-size: 22px;
-    text-transform: uppercase;
-  }
-  .price-container {
-    display: flex;
-    margin-top: 16px;
-    width: 109px;
-    max-width: 100%;
-    gap: 7px;
-    align-items: center;
-  }
-  .price-wrapper {
-    display: flex;
-    font-size: 14px;
-    color: #000;
-    text-transform: uppercase;
-  }
-  .price-old {
-    color: #d9d9d9;
-  }
-  .price-save {
-    color: #c6474b;
-    font-size: 10px;
-  }
-  .product-description {
-    color: #000;
-    letter-spacing: 0.7px;
-    margin-top: 16px;
-    font: 400 14px/20px Montserrat, sans-serif;
-  }
-  .tag-container {
-    display: flex;
-    margin-top: 22px;
-    align-items: center;
-    gap: 16px;
-    font-size: 14px;
-    color: #818181;
-    font-weight: 400;
-    letter-spacing: 0.7px;
-    line-height: 1;
-  }
-  .add-cart-button {
-    align-self: stretch;
-    border-radius: 5px;
-    background-color: #c6474b;
-    margin-top: 22px;
-    width: 236px;
-    max-width: 100%;
-    padding: 10px;
-    gap: 10px;
-    font-size: 14px;
-    color: #fff;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
-accordion-section {
-    display: flex;
-    margin: 62px auto 0;
-    width: 550px;
-    max-width: 100%;
-    flex-direction: column;
-    padding: 0 20px;
-  }
 
-  .accordion-header {
-    border: 1px solid #000;
-    display: flex;
-    padding: 12px 19px;
-    align-items: center;
-    gap: 10px;
-    color: #000;
-    justify-content: space-between;
-    cursor: pointer;
-    font: 700 14px Montserrat, sans-serif;
-  }
-  .accordion-title {
-    flex-grow: 1;
-  }
-  .accordion-content {
-    border: 1px solid #000;
-    padding: 16px;
-    color: #000;
-    font: 14px/1.5 Montserrat, sans-serif;
-  }
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow: hidden;
+      color: #000;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 12px 19px;
+      font: 700 14px Montserrat, sans-serif;
+      border: 1px solid #000;
+    }
+
+    .accordion-title {
+      align-self: stretch;
+      flex-grow: 1;
+      width: 492px;
+    }
+
+    .accordion-icon {
+      aspect-ratio: 1.14;
+      object-fit: contain;
+      object-position: center;
+      width: 8px;
+      align-self: stretch;
+    }
+
+    .accordion-content {
+      z-index: 10;
+      display: flex;
+      min-height: 163px;
+      align-items: center;
+      gap: 10px;
+      overflow: hidden;
+      justify-content: center;
+      padding: 16px 6px;
+      border: 1px solid #000;
+    }
+
+    .accordion-text {
+      align-self: stretch;
+      display: flex;
+      min-height: 131px;
+      min-width: 240px;
+      width: 538px;
+    }
 </style>
 
 {% schema %}
