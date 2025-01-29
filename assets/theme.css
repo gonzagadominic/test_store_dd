@@ -150,8 +150,9 @@
 }
 
 @media (max-width: 768px) {
-  .banner-bg {
-    min-height: 39rem;
+  .banner-content {
+     margin-bottom: -10em;
+    display:flex;
   }
 
 }
