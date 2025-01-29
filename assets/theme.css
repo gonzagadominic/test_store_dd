@@ -80,8 +80,8 @@
   position: relative;
   width: 100%;
   display: flex;
-  height: 50vh;
-  overflow: hidden;
+      height: 50vh;
+    overflow: hidden;
   align-items: center;
 }
 
@@ -109,8 +109,8 @@
   max-width: 352px;
   width: 100%;
   padding: 10px;
-  bottom: 30%;
-  left: 5%;
+    bottom: 30%;
+    left: 5%;
   margin-left: 17em;
 }
 
@@ -157,28 +157,28 @@
     text-align: center;
   }
 
-  .banner-section {
-    height: 250px;
-    min-height: 50vh;
-    overflow: hidden;
+  .banner-section{
+        height: 250px;
+        min-height: 50vh;
+        overflow: hidden;
   }
 
-  .cta-button {
+.cta-button {
     margin-top: 16px; /* Adds some space above the button */
     width: auto;
     max-width: 200px; /* Optional: limits max width on small screens */
     padding: 10px;
-    margin: auto;
+      margin: auto;
   }
 
   .banner-content {
-    display: flex;
+  display: flex;
     flex-direction: column;
     align-items: center; /* Centers the content horizontally */
     justify-content: center; /* Centers the content vertically */
     text-align: center; /* Ensures text is centered */
     width: 100%;
-    margin-left: 0;
+      margin-left:0;
   }
 
   .cart-container {
@@ -347,9 +347,10 @@
 }
 
 .featured-product__accordion {
-  display: grid;
-  place-items: center;
-  margin-top: 40px;
+argin-top: 62px;
+    width: 100%;
+    max-width: 550px;
+}
 }
 
 .featured-product__accordion-trigger {
