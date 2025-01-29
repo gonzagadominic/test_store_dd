@@ -458,6 +458,7 @@ footer-section {
   display: flex;
   gap: 27px;
   font: 700 14px/1.5 Montserrat, sans-serif;
+  margin-top: auto;
 }
 
 .footer-links a {
