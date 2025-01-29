@@ -1,15 +1,14 @@
- function toggleAccordion(button) {
-    // Get the associated content element
-    const content = document.getElementById(button.getAttribute('aria-controls'));
-    
-    // Get the icon inside the button
-    const icon = button.querySelector('.featured-product__accordion-icon');
-    
-    // Toggle the 'hidden' attribute on the content
-    const isExpanded = button.getAttribute('aria-expanded') === 'true';
-    button.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
-    content.hidden = isExpanded;
-    
-    // Toggle the icon text between '+' and '-'
-    icon.textContent = isExpanded ? '+' : '-';
-  }
+var acc = document.getElementsByClassName("featured-product__accordion-trigger");
+var i;
+ const icon = accordion.querySelector('.featured-product__accordion-icon');
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}

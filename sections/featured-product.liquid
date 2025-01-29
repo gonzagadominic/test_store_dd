@@ -4,10 +4,10 @@
       <div class="featured-product__media">
         {%- if section.settings.product.featured_media -%}
           <div class="featured-product__image">
-            {{
-              section.settings.product.featured_media
-              | img_url: 'master'
-              | img_tag: section.settings.product.featured_media.alt, 'featured-product__img', loading: 'lazy'
+            {{ section.settings.product.featured_media | img_url: 'master' | img_tag: 
+              section.settings.product.featured_media.alt,
+              'featured-product__img',
+              loading: 'lazy'
             }}
           </div>
         {%- endif -%}
@@ -15,7 +15,7 @@
 
       <div class="featured-product__details">
         <h2 class="featured-product__title">{{ section.settings.product.title }}</h2>
-
+        
         <div class="featured-product__price-wrapper">
           <div class="featured-product__price">
             <span class="featured-product__current-price">
@@ -35,12 +35,14 @@
         </div>
 
         <div class="featured-product__description">
+
           {%- assign words = section.settings.product.description | split: ' ' -%}
           {%- if words.size > 55 -%}
             {{ words | slice: 0, 55 | join: ' ' }}...
           {%- else -%}
             {{ product.description }}
           {%- endif -%}
+
         </div>
 
         <div class="featured-product__tags">
@@ -49,31 +51,17 @@
           {%- endfor -%}
         </div>
 
-        <form
-          method="post"
-          action="/cart/add"
-          id="product-form"
-          accept-charset="UTF-8"
-          class="featured-product__form"
-          enctype="multipart/form-data"
-        >
+        <form method="post" action="/cart/add" id="product-form" accept-charset="UTF-8" class="featured-product__form" enctype="multipart/form-data">
           <input type="hidden" name="form_type" value="product">
           <input type="hidden" name="utf8" value="✓">
-          <input
-            type="hidden"
-            name="product-variants"
-            id="product-variants"
-            value="{{ section.settings.product.selected_or_first_available_variant.id }}"
-          >
-
-          <button
-            type="submit"
-            name="add"
+          <input type="hidden" name="product-variants" id="product-variants" value="{{ section.settings.product.selected_or_first_available_variant.id }}">
+          
+          <button 
+            type="submit" 
+            name="add" 
             id="add-button"
             class="featured-product__submit"
-            {% unless section.settings.product.available %}
-              disabled
-            {% endunless %}
+            {% unless section.settings.product.available %} disabled{% endunless %}
           >
             <span>
               {%- if section.settings.product.available -%}
@@ -87,89 +75,85 @@
       </div>
     </div>
   </div>
-  <div class="featured-product__accordion">
-    <!-- Materials Accordion -->
-    <button
-      class="featured-product__accordion-trigger"
-      aria-expanded="false"
-      aria-controls="materials-content-{{ section.id }}"
-      onclick="toggleAccordion(this)"
-    >
-      <span style="text-transform: uppercase;">Materials</span>
-      <span class="featured-product__accordion-icon" aria-hidden="true">+</span>
-    </button>
-    <div
-      id="materials-content-{{ section.id }}"
-      class="featured-product__accordion-content"
-      hidden
-    >
-      {{ section.settings.product.metafields.namespace1.materials }}
-    </div>
-
-    <!-- Delivery Information Accordion -->
-    <button
-      class="featured-product__accordion-trigger"
-      aria-expanded="false"
-      aria-controls="delivery-content-{{ section.id }}"
-      onclick="toggleAccordion(this)"
-    >
-      <span>Delivery Information</span>
-      <span class="featured-product__accordion-icon" aria-hidden="true">+</span>
-    </button>
-    <div
-      id="delivery-content-{{ section.id }}"
-      class="featured-product__accordion-content"
-      hidden
-    >
-      {{ shop.metafields.global.delivery_information.value }}
-    </div>
+<div class="featured-product__accordion">
+  <!-- Materials Accordion -->
+  <button 
+    class="featured-product__accordion-trigger"
+    aria-expanded="false"
+    aria-controls="materials-content-{{ section.id }}"
+    onclick="toggleAccordion(this)">
+    <span style="text-transform: uppercase;">Materials</span>
+    <span class="featured-product__accordion-icon" aria-hidden="true">+</span>
+  </button>
+  <div 
+    id="materials-content-{{ section.id }}"
+    class="featured-product__accordion-content"
+    hidden>
+    {{ section.settings.product.metafields.namespace1.materials }}
   </div>
+
+  <!-- Delivery Information Accordion -->
+  <button 
+    class="featured-product__accordion-trigger"
+    aria-expanded="false"
+    aria-controls="delivery-content-{{ section.id }}"
+    onclick="toggleAccordion(this)">
+    <span>Delivery Information</span>
+    <span class="featured-product__accordion-icon" aria-hidden="true">+</span>
+  </button>
+  <div 
+    id="delivery-content-{{ section.id }}"
+    class="featured-product__accordion-content"
+    hidden>
+    {{ shop.metafields.global.delivery_information.value }}
+  </div>
+</div>
 </section>
 
 <script>
-    document.getElementById('product-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
+  document.getElementById('product-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
 
-    // Get form data
-    const variantId = document.getElementById('product-variants').value;
-    const quantity = 1;
-    document.getElementById('add-button').textContent = 'Adding to Cart...';
-    // Prepare data for the Ajax request
-    const formData = {
-      id: variantId,
-      quantity: quantity
-    };
+  // Get form data
+  const variantId = document.getElementById('product-variants').value;
+  const quantity = 1;
+  document.getElementById('add-button').textContent = 'Adding to Cart...';
+  // Prepare data for the Ajax request
+  const formData = {
+    id: variantId,
+    quantity: quantity
+  };
 
-    // Make the Ajax request to Shopify's cart API
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
+  // Make the Ajax request to Shopify's cart API
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(response => response.json())
+  .then(data => {
+     updateCartCount(); 
+     document.getElementById('add-button').textContent = 'Added to Cart.';
+  })
+  .catch(error => {
+    console.error('Error adding to cart:', error);
+  });
+});
+
+function updateCartCount() {
+  // Fetch the updated cart data
+  fetch('/cart.js')
     .then(response => response.json())
-    .then(data => {
-       updateCartCount();
-       document.getElementById('add-button').textContent = 'Added to Cart.';
+    .then(cart => {
+      // Update the cart item count
+      document.getElementById('cart-item-count').textContent = cart.item_count;
     })
     .catch(error => {
-      console.error('Error adding to cart:', error);
+      console.error('Error fetching cart:', error);
     });
-  });
-
-  function updateCartCount() {
-    // Fetch the updated cart data
-    fetch('/cart.js')
-      .then(response => response.json())
-      .then(cart => {
-        // Update the cart item count
-        document.getElementById('cart-item-count').textContent = cart.item_count;
-      })
-      .catch(error => {
-        console.error('Error fetching cart:', error);
-      });
-  }
+}
 </script>
 
 {% schema %}
