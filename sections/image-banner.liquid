@@ -25,119 +25,66 @@
 </div>
 
 <style>
-   .hero-container {
+ .hero-section {
+    width: 100%;
+    text-transform: uppercase;
+    font: 700 14px Montserrat, sans-serif;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
     position: relative;
     min-height: 471px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
     align-items: start;
-    overflow: hidden;
-    background-image: url('https://i.ibb.co/pv0qqKgs/blue-water-and-white-cliffs-surrounded-by-trees.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.5);
-    background-blend-mode: multiply;
+    padding: 221px 80px 34px;
   }
 
-  .hero-background {
+  .hero-bg {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    inset: 0;
     height: 100%;
+    width: 100%;
     object-fit: cover;
-    z-index: 1;
-    filter: brightness(0.5);
+    object-position: center;
   }
 
-  .content-wrapper {
+  .hero-content {
     position: relative;
     display: flex;
     width: 352px;
     max-width: 100%;
-    padding: 221px 80px 34px;
     flex-direction: column;
     justify-content: center;
-    z-index: 2;
+    padding: 10px;
   }
 
-  .content-inner {
+  .hero-text-wrapper {
     display: flex;
     width: 100%;
     max-width: 332px;
     flex-direction: column;
   }
 
-  .highlight-text {
-    color: #2bd896;
+  .hero-tagline {
+    color: var(--Bright-Green, #2bd896);
     letter-spacing: 1.4px;
-    font-weight: 500;
   }
 
-  .main-heading {
-    color: #ffffff;
-    margin: 8px 0;
-    font-family: Poppins, sans-serif;
-    font-size: 28px;
-    line-height: 1.4;
+  .hero-heading {
+    color: #fff;
+    margin-top: 8px;
+    font: 28px Poppins, sans-serif;
   }
 
   .cta-button {
-    align-self: stretch;
     border-radius: 5px;
     background-color: #c6474b;
     margin-top: 8px;
     width: 236px;
-    max-width: 100%;
-    padding: 15px 20px;
-    color: #ffffff;
-    cursor: pointer;
-    border: none;
-    text-transform: uppercase;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-  }
-
-  .cta-button:hover {
-    background-color: #b13e42;
-  }
-
-  .cta-button:focus {
-    outline: 2px solid #ffffff;
-    outline-offset: 2px;
-  }
-
-  .cta-button:focus:not(:focus-visible) {
-    outline: none;
-  }
-
-  @media (max-width: 991px) {
-    .content-wrapper {
-      padding: 100px 20px 34px;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .content-wrapper {
-      padding: 60px 20px 34px;
-    }
-    .main-heading {
-      font-size: 24px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .cta-button {
-      transition: none;
-    }
-  }
-
-  @media screen and (forced-colors: active) {
-    .cta-button {
-      border: 2px solid currentColor;
-    }
+    color: #fff;
+    padding: 10px;
   }
 </style>
 
