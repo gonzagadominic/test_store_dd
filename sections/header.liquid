@@ -1,12 +1,37 @@
   <header class="header">
-    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/fce88aeb17d2d7bc058376c5dae1dfe5da682f407399e3c277939467893220a1?placeholderIfAbsent=true&apiKey=874c8ab8215f4da29d36330b51c2d70b" class="logo" alt="Company Logo" />
+    <a href="/" class="logo-link">
+      {%- if section.settings.logo != blank -%}
+        <img 
+          src="{{ section.settings.logo | img_url: 'master' }}" 
+          alt="{{ shop.name }}"
+          class="logo"
+          width="161"
+          height="46"
+          loading="lazy"
+        >
+      {%- else -%}
+        <span class="shop-name">{{ shop.name }}</span>
+      {%- endif -%}
+    </a>
+    
     <div class="cart-container">
-      <div class="cart-badge">1</div>
-      <div class="cart-icon" role="button" tabindex="0" aria-label="Shopping Cart"></div>
+      <a href="/cart" class="cart-link" aria-label="Shopping Cart">
+        <span class="cart-badge" aria-hidden="true">
+          {{ cart.item_count }}
+        </span>
+        <div class="cart-icon"></div>
+      </a>
     </div>
   </header>
 {% schema %}
 {
-  "name": "Header"
+  "name": "Header",
+     "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Upload logo"
+    }
+  ],
 }
 {% endschema %}
