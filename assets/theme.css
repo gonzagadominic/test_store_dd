@@ -409,10 +409,6 @@ footer-section {
 }
 
 @media (max-width: 991px) {
-  .banner-container {
-    padding: 0 20px;
-  }
-
   .footer-links {
     width: 100%;
     justify-content: flex-start;
