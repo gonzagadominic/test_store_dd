@@ -156,6 +156,11 @@
     text-align: center;
   }
 
+  .cta-button {
+      align-items: center;
+    text-align: center;
+  }
+
   .banner-content {
     margin-left:0;
      align-items: center;
