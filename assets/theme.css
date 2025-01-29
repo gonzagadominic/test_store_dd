@@ -156,6 +156,10 @@
     text-align: center;
   }
 
+  .banner-content {
+    margin-left:0;
+  }
+
   .cart-container {
     flex-direction: row;
     justify-content: center;
