@@ -1,34 +1,70 @@
-<div  id="Banner-{{ section.id }}" class="hero-section">
-  <div class="hero-container">
-    <img loading="lazy" src="{{ section.settings.image | img_url: 'master' }}" class="hero-bg" alt="Hero Background Image"/>
-    <div class="hero-content">
-      <div class="hero-text-wrapper">
-        <p class="hero-tagline">Shopify eCommerce experts.</p>
-        <h1 class="hero-heading">
-          We design, build and<br />
-          optimise exceptional<br />
-          eCommerce websites.
-        </h1>
-        <button class="cta-button">START YOUR PROJECT</button>
+<section class="banner-section" role="banner">
+  <div class="banner-container">
+    {%- if section.settings.banner_image != blank -%}
+      {{ section.settings.banner_image | img_url: 'master' | img_tag: 
+        section.settings.banner_image.alt,
+        'banner-bg',
+        loading: 'eager'
+      }}
+    {%- endif -%}
+    
+    <div class="banner-content">
+      <div class="banner-text-wrapper">
+        {%- if section.settings.tagline != blank -%}
+          <p class="banner-tagline">{{ section.settings.tagline }}</p>
+        {%- endif -%}
+        
+        {%- if section.settings.heading != blank -%}
+          <h1 class="banner-heading">{{ section.settings.heading }}</h1>
+        {%- endif -%}
+        
+        {%- if section.settings.cta_link != blank and section.settings.cta_text != blank -%}
+          <a href="{{ section.settings.cta_link }}" class="cta-button">
+            {{ section.settings.cta_text }}
+          </a>
+        {%- endif -%}
       </div>
     </div>
   </div>
-</div>
+</section>
+
 {% schema %}
 {
-  "name": "Image banner",
-  "presets": [
-    {
-      "name": "Image banner"
-    }
-  ],
-   "settings": [
+  "name": "Image Banner",
+  "settings": [
     {
       "type": "image_picker",
-      "id": "image",
-      "label": "Upload Image"
+      "id": "banner_image",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Shopify eCommerce experts."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "We design, build and optimize exceptional eCommerce websites."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "START YOUR PROJECT"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Button Link"
     }
   ],
+  "presets": [
+    {
+      "name": "Image Banner"
+    }
+  ]
 }
-  
 {% endschema %}
