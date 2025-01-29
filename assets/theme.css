@@ -1,375 +1,236 @@
-.visually-hidden {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
+.skip-to-content-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 1000;
+  padding: 1em;
+  background-color: white;
+  color: black;
+  opacity: 0;
+}
 
-  .main-container {
-    background-color: #fff;
-    display: flex;
-    padding: 22px 0 0;
-    flex-direction: column;
-    overflow: hidden;
-    width: 100%;
-    min-height: 100vh;
-  }
+.skip-to-content-link:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+}
 
-  .header {
-    align-self: center;
-    display: flex;
-    width: 100%;
-    max-width: 1120px;
-    gap: 20px;
-    color: #fff;
-    letter-spacing: 0.4px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    font: 400 8px/20px Montserrat, sans-serif;
+.site-header {
+  padding: 22px 0;
+  background-color: #fff;
+}
+
+.header-wrapper {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link {
+  display: block;
+}
+
+.logo {
+  width: 161px;
+  height: auto;
+  display: block;
+}
+
+.shop-name {
+  font: 700 24px/1 Montserrat, sans-serif;
+  color: #000;
+}
+
+.cart-container {
+  position: relative;
+}
+
+.cart-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.cart-badge {
+  border-radius: 9999px;
+  background-color: #000;
+  color: #fff;
+  padding: 0 6px;
+  min-width: 16px;
+  height: 16px;
+  font: 400 8px/16px Montserrat, sans-serif;
+  text-align: center;
+}
+
+.cart-icon {
+  width: 15px;
+  height: 15px;
+  background-color: #d9d9d9;
+  border-radius: 2px;
+  margin-top: 2px;
+}
+
+.banner-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 471px;
+  display: flex;
+  align-items: center;
+}
+
+.banner-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+}
+
+.banner-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 352px;
+  width: 100%;
+  padding: 10px;
+}
+
+.banner-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.banner-tagline {
+  color: #2bd896;
+  font: 700 14px/1.5 Montserrat, sans-serif;
+  letter-spacing: 1.4px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.banner-heading {
+  color: #fff;
+  font: 700 28px/1.2 Poppins, sans-serif;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.cta-button {
+  display: inline-block;
+  border-radius: 5px;
+  background-color: #c6474b;
+  padding: 10px;
+  width: 236px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font: 700 14px/1.5 Montserrat, sans-serif;
+  margin-top: 8px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.site-footer {
+  margin-top: 79px;
+  width: 100%;
+}
+
+.footer-wrapper {
+  border-top: 1px solid #d9d9d9;
+  padding: 31px 20px;
+}
+
+.footer-content {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-contact {
+  font: 700 14px/1.5 Montserrat, sans-serif;
+  color: #000;
+  margin: 0;
+}
+
+.footer-email {
+  color: #2bd896;
+  text-decoration: none;
+  font: 400 14px/1.5 Montserrat, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.footer-copyright {
+  color: #000;
+  font: 400 14px/1.5 Montserrat, sans-serif;
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 27px;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  color: #2bd896;
+  text-decoration: none;
+  font: 400 14px/1.5 Montserrat, sans-serif;
+  transition: color 0.3s ease;
+}
+
+@media (max-width: 991px) {
+  .banner-container {
     padding: 0 20px;
-  }
-
-  .logo {
-    aspect-ratio: 3.5;
-    object-fit: contain;
-    object-position: center;
-    width: 161px;
-  }
-
-  .cart-container {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    margin: auto 0;
-  }
-
-  .cart-badge {
-    border-radius: 9999px;
-    background-color: #000;
-    z-index: 10;
-    height: 16px;
-    padding: 0 6px;
-    color: #fff;
-  }
-
-  .cart-icon {
-    border-radius: 2px;
-    background-color: #d9d9d9;
-    width: 15px;
-    height: 15px;
-    cursor: pointer;
-  }
-
-  .main-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    flex: 1;
-  }
-
-  .hero-section {
-    width: 100%;
-    text-transform: uppercase;
-    font: 700 14px Montserrat, sans-serif;
-    position: relative;
-    height: 100vh;
-    min-height: 471px;
-    display: flex;
-    align-items: center;
-  }
-
-  .hero-container {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 80px;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 352px;
-    width: 100%;
-    padding: 10px;
-  }
-
-  .hero-text-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .hero-tagline {
-    color: #2bd896;
-    letter-spacing: 1.4px;
-    margin: 0;
-  }
-
-  .hero-heading {
-    color: #fff;
-    font: 28px Poppins, sans-serif;
-    margin: 0;
-  }
-
-  .cta-button {
-    border-radius: 5px;
-    background-color: #c6474b;
-    width: 236px;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    text-transform: uppercase;
-    font: inherit;
-    margin-top: 8px;
-  }
-
-  .product-section {
-    display: flex;
-    margin-top: 79px;
-    width: 100%;
-    max-width: 1120px;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 20px;
-  }
-
-  .product-container {
-    width: 100%;
-  }
-
-  .product-layout {
-    gap: 20px;
-    display: flex;
-  }
-
-  .product-image-col {
-    flex: 0 0 59%;
-  }
-
-  .product-image {
-    background-color: #d9d9d9;
-    width: 100%;
-    aspect-ratio: 1.7;
-  }
-
-  .product-info-col {
-    flex: 0 0 41%;
-  }
-
-  .product-info-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-  }
-
-  .product-details {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .product-name {
-    color: #000;
-    font-size: 22px;
-    text-transform: uppercase;
-    margin: 0;
-  }
-
-  .price-container {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-  }
-
-  .price-wrapper {
-    display: flex;
-    font-size: 14px;
-    color: #000;
-    text-transform: uppercase;
-    align-items: center;
-  }
-
-  .price-divider {
-    width: 30px;
-    height: 1px;
-    background-color: #d9d9d9;
-    margin: 0 5px;
-  }
-
-  .savings {
-    color: #c6474b;
-    font-size: 10px;
-  }
-
-  .product-description {
-    color: #000;
-    letter-spacing: 0.7px;
-    font: 400 14px/1.5 Montserrat, sans-serif;
-    margin: 0;
-  }
-
-  .tag-container {
-    display: flex;
-    gap: 16px;
-    color: #818181;
-    font: 400 14px Montserrat, sans-serif;
-  }
-
-  .add-cart-btn {
-    border-radius: 5px;
-    background-color: #c6474b;
-    width: 236px;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    text-transform: uppercase;
-    font: inherit;
-  }
-
-  .accordion-section {
-    margin-top: 62px;
-    width: 100%;
-    max-width: 550px;
-  }
-
-  .accordion-header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 19px;
-    border: 1px solid #000;
-    background: none;
-    cursor: pointer;
-    font: 700 14px Montserrat, sans-serif;
-    text-align: left;
-  }
-
-  .accordion-content {
-    border: 1px solid #000;
-    border-top: none;
-    padding: 16px;
-  }
-
-  .accordion-icon {
-    width: 8px;
-    height: 8px;
-    transition: transform 0.3s ease;
-  }
-
-  [aria-expanded="true"] .accordion-icon {
-    transform: rotate(180deg);
-  }
-
-  .footer-section {
-    width: 100%;
-    margin-top: 79px;
-    font: 400 14px/1.5 Montserrat, sans-serif;
-  }
-
-  .footer-wrapper {
-    width: 100%;
-    padding: 31px 20px;
-    border-top: 1px solid #d9d9d9;
-  }
-
-  .footer-content {
-    max-width: 1120px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .footer-info {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .footer-contact {
-    font-weight: 700;
-    margin: 0;
-  }
-
-  .footer-email {
-    color: #2bd896;
-    text-decoration: none;
-  }
-
-  .footer-copyright {
-    margin: 0;
   }
 
   .footer-links {
-    display: flex;
-    gap: 27px;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 40px;
+  }
+}
+
+@media (hover: hover) {
+  .cta-button:hover {
+    background-color: #a33c3f;
   }
 
-  .footer-links a {
-    color: #2bd896;
-    text-decoration: none;
+  .footer-email:hover,
+  .footer-link:hover {
+    color: #1f9c6a;
   }
+}
 
-  @media (max-width: 991px) {
-    .hero-container {
-      padding: 0 20px;
-    }
-
-    .product-layout {
-      flex-direction: column;
-    }
-
-    .product-image-col,
-    .product-info-col {
-      flex: 0 0 100%;
-    }
-
-    .product-info-wrapper {
-      margin-top: 36px;
-    }
-
-    .footer-links {
-      width: 100%;
-      justify-content: flex-start;
-      margin-top: 40px;
-    }
+@media (prefers-reduced-motion: reduce) {
+  .cta-button,
+  .footer-email,
+  .footer-link {
+    transition: none;
   }
-
-  @media (hover: hover) {
-    .cta-button:hover,
-    .add-cart-btn:hover {
-      background-color: #a33c3f;
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .cta-button,
-    .add-cart-btn,
-    .accordion-icon {
-      transition: all 0.3s ease;
-    }
-  }
+}
