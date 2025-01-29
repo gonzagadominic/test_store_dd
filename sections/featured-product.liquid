@@ -54,7 +54,7 @@
         <form method="post" action="/cart/add" id="product-form" accept-charset="UTF-8" class="featured-product__form" enctype="multipart/form-data">
           <input type="hidden" name="form_type" value="product">
           <input type="hidden" name="utf8" value="✓">
-          <input type="hidden" name="product-variants" value="{{ section.settings.product.selected_or_first_available_variant.id }}">
+          <input type="hidden" name="product-variants" id="product-variants" value="{{ section.settings.product.selected_or_first_available_variant.id }}">
           
           <button 
             type="submit" 
