@@ -135,6 +135,7 @@
   .then(response => response.json())
   .then(data => {
      updateCartCount(); 
+     document.getElementById('add-button').textContent = 'Added to Cart.';
   })
   .catch(error => {
     console.error('Error adding to cart:', error);
