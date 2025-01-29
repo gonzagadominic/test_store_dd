@@ -150,10 +150,15 @@
 }
 
 @media (max-width: 768px) {
-  .featured-product__tags {
-    flex-direction: column;
-    align-items: center;
+  .banner-bg {
+    position: absolute;
+    inset: 0;
+    width: 10%;
+    height: 10%;
+    object-fit: cover;
+    z-index: 0;
   }
+
 }
 
 .featured-product {
