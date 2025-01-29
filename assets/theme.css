@@ -173,7 +173,7 @@
 
   .banner-tagline {
 
-  text-transform: uppercase;
+    white-space: nowrap;
   }
 }
 
