@@ -1,7 +1,7 @@
 <div class="hero-container" role="banner" aria-label="Hero section">
 
   {% if section.settings.image %}
-  <img src="{{ section.settings.image | img_url: 'master' }}" alt="Selected image"  height="100" width="100"/>
+  <img src="{{ section.settings.image | img_url: 'master' }}" alt="Selected image" />
 {% else %}
   <p>No image selected</p>
 {% endif %}
