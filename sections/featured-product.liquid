@@ -103,29 +103,20 @@
   </div>
 </section>
 <script>
-  class FeaturedProduct extends HTMLElement {
-  constructor() {
-    super();
-    this.accordionTriggers = this.querySelectorAll('.featured-product__accordion-trigger');
-    this.init();
-  }
+var acc = document.getElementsByClassName("accordion");
+var i;
 
-  init() {
-    this.accordionTriggers.forEach(trigger => {
-      trigger.addEventListener('click', () => this.toggleAccordion(trigger));
-    });
-  }
-
-  toggleAccordion(trigger) {
-    const content = document.getElementById(trigger.getAttribute('aria-controls'));
-    const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
-    
-    trigger.setAttribute('aria-expanded', !isExpanded);
-    content.hidden = isExpanded;
-  }
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
 }
-
-customElements.define('featured-product', FeaturedProduct);
 </script>
 {% schema %}
 {
