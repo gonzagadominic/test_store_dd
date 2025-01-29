@@ -170,6 +170,11 @@
     display: flex;
     align-items: center;
   }
+
+  .banner-tagline {
+
+  text-transform: uppercase;
+  }
 }
 
 .featured-product {
