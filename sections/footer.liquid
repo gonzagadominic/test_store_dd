@@ -1,19 +1,44 @@
-<footer class="footer">
-  <div class="rectangle-f">
-        <span class="contact-us">CONTACT US</span
-        ><span class="email">hello@shopify.com</span>
-        <div class="flex-row">
-          <span class="copyright"
-            >Copyright 2023 Drive Digital. All rights reserved.</span
-          ><span class="privacy-policy">Privacy Policy</span
-          ><span class="terms-and-conditions">Terms and Conditions</span
-          ><span class="returns">Returns</span>
-        </div>
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-wrapper">
+    <div class="footer-content">
+      <div class="footer-info">
+        <h2 class="footer-contact">{{ 'footer.contact_us' | t }}</h2>
+        <a href="mailto:{{ section.settings.contact_email }}" class="footer-email">
+          {{ section.settings.contact_email }}
+        </a>
+        <p class="footer-copyright">{{ section.settings.copyright_text }}</p>
       </div>
+
+      <nav class="footer-links" aria-label="{{ 'footer.footer_menu' | t }}">
+        {%- for link in section.settings.footer_menu.links -%}
+          <a href="{{ link.url }}" class="footer-link">{{ link.title }}</a>
+        {%- endfor -%}
+      </nav>
+    </div>
+  </div>
 </footer>
 
 {% schema %}
 {
-  "name": "Footer"
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Contact Email",
+      "default": "hello@shopify.com"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright Text",
+      "default": "Copyright 2023 Drive Digital. All rights reserved."
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu",
+      "label": "Footer Menu"
+    }
+  ]
 }
 {% endschema %}
