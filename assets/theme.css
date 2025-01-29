@@ -156,6 +156,10 @@
     text-align: center;
   }
 
+  .banner-section{
+    height: 200px;
+  }
+
 .cta-button {
     margin-top: 16px; /* Adds some space above the button */
     width: auto;
