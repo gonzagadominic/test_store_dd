@@ -9,7 +9,7 @@
             <div class="dollar-sign">
               <span class="dom-nbsp">${{ product.price }}} </span><span class="dollar">$ {{ product.compare_at_price }}</span>
             </div>
-            <span class="save-three">save $3</span>
+            <span class="save-three">save $ {{ product.compare_at_price| minus: product.price }}</span>
             <div class="line"></div>
           </div>
           <span class="product-description"
