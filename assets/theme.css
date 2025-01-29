@@ -158,6 +158,8 @@
 
   .banner-content {
     margin-left:0;
+     align-items: center;
+    text-align: center;
   }
 
   .cart-container {
