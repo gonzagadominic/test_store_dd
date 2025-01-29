@@ -1,6 +1,6 @@
 var acc = document.getElementsByClassName("featured-product__accordion-trigger");
 var i;
- const icon = accordion.querySelector('.featured-product__accordion-icon');
+ const icon = document.querySelector('.featured-product__accordion-icon');
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
     this.classList.toggle("active");
