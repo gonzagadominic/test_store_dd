@@ -65,6 +65,309 @@
   {% render 'product-more-info' %}
 </div>
 
+<style>
+  :root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+}
+
+.main-container {
+  overflow: hidden;
+}
+
+.main-container,
+.main-container * {
+  box-sizing: border-box;
+}
+
+input,
+select,
+textarea,
+button {
+  outline: 0;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 62px;
+  position: relative;
+  width: 1120px;
+  margin: 0 auto;
+}
+.rectangle {
+  flex-shrink: 0;
+  position: relative;
+  width: 645px;
+  height: 379px;
+  background: #d9d9d9;
+  z-index: 15;
+}
+.frame-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 22px;
+  position: relative;
+  width: 455px;
+  z-index: 1;
+}
+.frame-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 16px;
+  position: relative;
+  width: 455px;
+  z-index: 2;
+}
+.featured-product-name {
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  height: 33px;
+  color: #000000;
+  font-family: Poppins, var(--default-font-family);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 33px;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 3;
+}
+.group {
+  flex-shrink: 0;
+  position: relative;
+  width: 109px;
+  height: 21px;
+  z-index: 4;
+}
+.dollar-sign {
+  position: absolute;
+  width: 58px;
+  height: 21px;
+  top: 0;
+  left: 0;
+  font-family: Poppins, var(--default-font-family);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  text-align: left;
+  text-overflow: initial;
+  white-space: nowrap;
+  z-index: 6;
+}
+.dom-nbsp {
+  position: relative;
+  color: #000000;
+  font-family: Poppins, var(--default-font-family);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  text-align: left;
+  text-transform: uppercase;
+}
+.dollar {
+  position: relative;
+  color: #d9d9d9;
+  font-family: Poppins, var(--default-font-family);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  text-align: left;
+  text-transform: uppercase;
+}
+.save-three {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  height: 15px;
+  top: 3px;
+  left: 69px;
+  color: #c6474b;
+  font-family: Poppins, var(--default-font-family);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 15px;
+  text-align: left;
+  white-space: nowrap;
+  z-index: 5;
+}
+.line {
+  position: absolute;
+  width: 30px;
+  height: 1px;
+  top: 10px;
+  left: 32px;
+  background: url(./assets/images/a97684ec-a498-47c9-8f09-0218e5e7e9b1.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 7;
+}
+.product-description {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+  width: 455px;
+  height: 160px;
+  color: #000000;
+  font-family: Montserrat, var(--default-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  letter-spacing: 0.7px;
+  z-index: 8;
+}
+.frame-3 {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 16px;
+  position: relative;
+  width: 112px;
+  z-index: 9;
+}
+.tag-1 {
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  height: 20px;
+  color: #818181;
+  font-family: Montserrat, var(--default-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: 0.7px;
+  z-index: 10;
+}
+.ellipse {
+  flex-shrink: 0;
+  position: relative;
+  width: 6px;
+  height: 6px;
+  background: url(./assets/images/a66e3c8f-9639-4418-a330-88982d2a503a.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 11;
+  border-radius: 50%;
+}
+.tag-2 {
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  height: 20px;
+  color: #818181;
+  font-family: Montserrat, var(--default-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: 0.7px;
+  z-index: 12;
+}
+.frame-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 10px;
+  position: relative;
+  width: 236px;
+  padding: 10px 10px 10px 10px;
+  cursor: pointer;
+  background: #c6474b;
+  border: none;
+  z-index: 13;
+  border-radius: 5px;
+}
+.add-to-cart {
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  height: 17px;
+  color: #ffffff;
+  font-family: Montserrat, var(--default-font-family);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 14;
+}
+.frame-5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 10px;
+  position: relative;
+  width: 550px;
+  padding: 12px 19px 12px 19px;
+  border: 1px solid #000000;
+  z-index: 17;
+  overflow: hidden;
+}
+.materials {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  width: 494px;
+  height: 17px;
+  color: #000000;
+  font-family: Montserrat, var(--default-font-family);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  text-align: left;
+  white-space: nowrap;
+  z-index: 18;
+}
+.vector {
+  flex-shrink: 0;
+  position: relative;
+  width: 8.832px;
+  height: 7.179px;
+  background: url(./assets/images/08a0cb2f-f481-4a5d-ae26-b1f6ba0df2b8.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 19;
+}
+.frame-6 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 10px;
+  position: relative;
+  width: 550px;
+  height: 163px;
+  padding: 12px 19px 12px 19px;
+</style>
+
 {% schema %}
 {
   "name": "Featured product",
