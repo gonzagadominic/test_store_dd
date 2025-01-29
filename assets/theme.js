@@ -10,5 +10,11 @@ for (i = 0; i < acc.length; i++) {
     } else {
       panel.style.display = "block";
     }
+
+    if (panel.style.display === 'block') {
+      icon.textContent = '-'; // Change to minus when expanded
+    } else {
+      icon.textContent = '+'; // Change back to plus when collapsed
+    }
   });
 }
