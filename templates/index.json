@@ -12,7 +12,11 @@
     "image_banner": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify://shop_images/blue-water-and-white-cliffs-surrounded-by-trees.jpg"
+        "banner_image": "shopify://shop_images/blue-water-and-white-cliffs-surrounded-by-trees_94bb2b67-eea6-4049-980b-9c24c51e9878.jpg",
+        "tagline": "Shopify eCommerce experts.",
+        "heading": "We design, build and optimize exceptional eCommerce websites.",
+        "cta_text": "START YOUR PROJECT",
+        "cta_link": ""
       }
     },
     "featured_product_9bnXxD": {
