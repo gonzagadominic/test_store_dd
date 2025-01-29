@@ -133,28 +133,25 @@
   })
   .then(response => response.json())
   .then(data => {
-    // Show a notification or update cart information
-    showCartNotification(data);
+     updateCartCount(); 
   })
   .catch(error => {
     console.error('Error adding to cart:', error);
   });
 });
 
-function showCartNotification(data) {
-  // Display a cart notification or update cart contents
-  const notification = document.getElementById('cart-notification');
-  notification.style.display = 'block';
-
-  // Optionally, you can also update the cart icon or display more detailed cart info
-  console.log('Cart updated:', data);
-  
-  // Hide the notification after a few seconds
-  setTimeout(() => {
-    notification.style.display = 'none';
-  }, 3000);
+function updateCartCount() {
+  // Fetch the updated cart data
+  fetch('/cart.js')
+    .then(response => response.json())
+    .then(cart => {
+      // Update the cart item count
+      document.getElementById('cart-item-count').textContent = cart.item_count;
+    })
+    .catch(error => {
+      console.error('Error fetching cart:', error);
+    });
 }
-
 </script>
 
 {% schema %}
