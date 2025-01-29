@@ -1,364 +1,193 @@
 {% assign product = section.settings.product %}
-<div class="page-width">
-    <div class="main-container">
-      <div class="rectangle"></div>
-      <div class="frame-1">
-        <div class="frame-2">
-          <span class="featured-product-name">{{product.title}}</span>
-          <div class="group">
-            <div class="dollar-sign">
-              <span class="dom-nbsp">{{ product.price | money_without_trailing_zeros }} </span><span class="dollar">{{ product.compare_at_price | money_without_trailing_zeros  }}</span>
+ <div class="product-container">
+    <div class="product-grid">
+      <div class="product-image-column">
+        <div class="product-image" role="img" aria-label="Featured product image"></div>
+      </div>
+      <div class="product-info-column">
+        <div class="product-details">
+          <div class="product-header">
+            <h2 class="product-name">Featured Product name</h2>
+            <div class="price-container">
+              <div class="price-wrapper">
+                <span>$12</span>
+                <span class="price-old">$15</span>
+              </div>
+              <span class="price-save">save $3</span>
             </div>
-            <span class="save-three">save {{ product.compare_at_price| minus: product.price | money_without_trailing_zeros  }}</span>
-            <div class="line"></div>
+            <p class="product-description">
+              Place the product descipription here.<br>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis augue tempus, vestibulum neque eu, tempor ex. Quisque pulvinar volutpat mi, vitae aliquet nisl tincidunt vitae. Nulla porta massa neque, vel tincidunt ante vestibulum quis. Sed feugiat auctor ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            </p>
           </div>
-          <span class="product-description"
-            >Place the product descipription here.<br />Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit. Donec quis augue tempus,
-            vestibulum neque eu, tempor ex. Quisque pulvinar volutpat mi, vitae
-            aliquet nisl tincidunt vitae. Nulla porta massa neque, vel tincidunt
-            ante vestibulum quis. Sed feugiat auctor ipsum. Orci varius natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus
-            mus.</span
-          >
+          <div class="tag-container">
+            <span>tag 1</span>
+            <span>tag 2</span>
+          </div>
+          <button class="add-cart-button" tabindex="0">ADD TO CART</button>
         </div>
-        <div class="frame-3">
-          <span class="tag-1">tag 1</span>
-          <div class="ellipse"></div>
-          <span class="tag-2">tag 2</span>
-        </div>
-        <button class="frame-4">
-          <span class="add-to-cart">ADD TO CART</span>
-        </button>
-      </div>
-      <div class="frame-5">
-        <span class="materials">MATERIALS</span>
-        <div class="vector"></div>
-      </div>
-      <div class="frame-6">
-        <div class="body-recycled-stainless">
-          <span class="body-recycled-stainless-7"
-            >Body: The main body of the EcoStream Water Bottle is made from 100%
-            recycled stainless steel, providing a durable and rust-resistant
-            solution for daily hydration needs. This choice of material ensures
-            a long product lifecycle and reduces the need for virgin raw
-            materials.<br />Lid: Composed of BPA-free, food-grade polypropylene
-            (PP5), our lids are designed for safety and longevity. They are
-            engineered to be leak-proof and easy to clean, ensuring that your
-            drinking experience is both secure and convenient.</span
-          >
-        </div>
-      </div>
-      <div class="frame-8">
-        <span class="delivery-information">Delivery Information</span>
-        <div class="vector-9"></div>
       </div>
     </div>
+  </div>
 
-  {% render 'product-more-info' %}
-</div>
-
+  <section class="accordion-section">
+    <div class="accordion-header" tabindex="0" role="button">
+      <h3 class="accordion-title">MATERIALS</h3>
+      <i class="ti ti-chevron-down" aria-hidden="true"></i>
+    </div>
+    <div class="accordion-content">
+      Body: The main body of the EcoStream Water Bottle is made from 100% recycled stainless steel, providing a durable and rust-resistant solution for daily hydration needs. This choice of material ensures a long product lifecycle and reduces the need for virgin raw materials.<br><br>
+      Lid: Composed of BPA-free, food-grade polypropylene (PP5), our lids are designed for safety and longevity. They are engineered to be leak-proof and easy to clean, ensuring that your drinking experience is both secure and convenient.
+    </div>
+    <div class="accordion-header" tabindex="0" role="button">
+      <h3 class="accordion-title">Delivery Information</h3>
+      <i class="ti ti-chevron-down" aria-hidden="true"></i>
+    </div>
+  </section>
 <style>
-  :root {
-  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
-    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
-    "Source Han Sans CN", sans-serif;
-}
-
-.main-container {
-  overflow: hidden;
-}
-
-.main-container,
-.main-container * {
-  box-sizing: border-box;
-}
-
-input,
-select,
-textarea,
-button {
-  outline: 0;
-}
-
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 62px;
-  position: relative;
-  width: 1120px;
-  margin: 0 auto;
-}
-.rectangle {
-  flex-shrink: 0;
-  position: relative;
-  width: 645px;
-  height: 379px;
-  background: #d9d9d9;
-  z-index: 15;
-}
-.frame-1 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  flex-shrink: 0;
-  gap: 22px;
-  position: relative;
-  width: 455px;
-  z-index: 1;
-}
-.frame-2 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  flex-shrink: 0;
-  gap: 16px;
-  position: relative;
-  width: 455px;
-  z-index: 2;
-}
-.featured-product-name {
-  flex-shrink: 0;
-  flex-basis: auto;
-  position: relative;
-  height: 33px;
-  color: #000000;
-  font-family: Poppins, var(--default-font-family);
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 33px;
-  text-align: left;
-  text-transform: uppercase;
-  white-space: nowrap;
-  z-index: 3;
-}
-.group {
-  flex-shrink: 0;
-  position: relative;
-  width: 109px;
-  height: 21px;
-  z-index: 4;
-}
-.dollar-sign {
-  position: absolute;
-  width: 58px;
-  height: 21px;
-  top: 0;
-  left: 0;
-  font-family: Poppins, var(--default-font-family);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 21px;
-  text-align: left;
-  text-overflow: initial;
-  white-space: nowrap;
-  z-index: 6;
-}
-.dom-nbsp {
-  position: relative;
-  color: #000000;
-  font-family: Poppins, var(--default-font-family);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 21px;
-  text-align: left;
-  text-transform: uppercase;
-}
-.dollar {
-  position: relative;
-  color: #d9d9d9;
-  font-family: Poppins, var(--default-font-family);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 21px;
-  text-align: left;
-  text-transform: uppercase;
-}
-.save-three {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  position: absolute;
-  height: 15px;
-  top: 3px;
-  left: 69px;
-  color: #c6474b;
-  font-family: Poppins, var(--default-font-family);
-  font-size: 10px;
-  font-weight: 700;
-  line-height: 15px;
-  text-align: left;
-  white-space: nowrap;
-  z-index: 5;
-}
-.line {
-  position: absolute;
-  width: 30px;
-  height: 1px;
-  top: 10px;
-  left: 32px;
-  background: url(./assets/images/a97684ec-a498-47c9-8f09-0218e5e7e9b1.png)
-    no-repeat center;
-  background-size: cover;
-  z-index: 7;
-}
-.product-description {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  position: relative;
-  width: 455px;
-  height: 160px;
-  color: #000000;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  text-align: left;
-  letter-spacing: 0.7px;
-  z-index: 8;
-}
-.frame-3 {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  flex-shrink: 0;
-  gap: 16px;
-  position: relative;
-  width: 112px;
-  z-index: 9;
-}
-.tag-1 {
-  flex-shrink: 0;
-  flex-basis: auto;
-  position: relative;
-  height: 20px;
-  color: #818181;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  text-align: left;
-  white-space: nowrap;
-  letter-spacing: 0.7px;
-  z-index: 10;
-}
-.ellipse {
-  flex-shrink: 0;
-  position: relative;
-  width: 6px;
-  height: 6px;
-  background: url(./assets/images/a66e3c8f-9639-4418-a330-88982d2a503a.png)
-    no-repeat center;
-  background-size: cover;
-  z-index: 11;
-  border-radius: 50%;
-}
-.tag-2 {
-  flex-shrink: 0;
-  flex-basis: auto;
-  position: relative;
-  height: 20px;
-  color: #818181;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  text-align: left;
-  white-space: nowrap;
-  letter-spacing: 0.7px;
-  z-index: 12;
-}
-.frame-4 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  flex-shrink: 0;
-  gap: 10px;
-  position: relative;
-  width: 236px;
-  padding: 10px 10px 10px 10px;
-  cursor: pointer;
-  background: #c6474b;
-  border: none;
-  z-index: 13;
-  border-radius: 5px;
-}
-.add-to-cart {
-  flex-shrink: 0;
-  flex-basis: auto;
-  position: relative;
-  height: 17px;
-  color: #ffffff;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 17px;
-  text-align: left;
-  text-transform: uppercase;
-  white-space: nowrap;
-  z-index: 14;
-}
-.frame-5 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  flex-shrink: 0;
-  gap: 10px;
-  position: relative;
-  width: 550px;
-  padding: 12px 19px 12px 19px;
-  border: 1px solid #000000;
-  z-index: 17;
-  overflow: hidden;
-}
-.materials {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  flex-basis: auto;
-  position: relative;
-  width: 494px;
-  height: 17px;
-  color: #000000;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 17px;
-  text-align: left;
-  white-space: nowrap;
-  z-index: 18;
-}
-.vector {
-  flex-shrink: 0;
-  position: relative;
-  width: 8.832px;
-  height: 7.179px;
-  background: url(./assets/images/08a0cb2f-f481-4a5d-ae26-b1f6ba0df2b8.png)
-    no-repeat center;
-  background-size: cover;
-  z-index: 19;
-}
-.frame-6 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  flex-shrink: 0;
-  gap: 10px;
-  position: relative;
-  width: 550px;
-  height: 163px;
-  padding: 12px 19px 12px 19px;
+    .product-container {
+    display: flex;
+    margin-top: 79px;
+    width: 1120px;
+    max-width: 100%;
+    padding: 0 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-grid {
+    gap: 20px;
+    display: flex;
+    width: 100%;
+  }
+  @media (max-width: 991px) {
+    .product-grid {
+      flex-direction: column;
+    }
+  }
+  .product-image-column {
+    display: flex;
+    flex-direction: column;
+    width: 59%;
+  }
+  @media (max-width: 991px) {
+    .product-image-column {
+      width: 100%;
+    }
+  }
+  .product-image {
+    background-color: #d9d9d9;
+    display: flex;
+    width: 100%;
+    height: 379px;
+  }
+  .product-info-column {
+    display: flex;
+    flex-direction: column;
+    width: 41%;
+  }
+  @media (max-width: 991px) {
+    .product-info-column {
+      width: 100%;
+    }
+  }
+  .product-details {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+  }
+  .product-header {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    font-family: Poppins, sans-serif;
+  }
+  .product-name {
+    color: #000;
+    font-size: 22px;
+    text-transform: uppercase;
+  }
+  .price-container {
+    display: flex;
+    margin-top: 16px;
+    width: 109px;
+    max-width: 100%;
+    gap: 7px;
+    align-items: center;
+  }
+  .price-wrapper {
+    display: flex;
+    font-size: 14px;
+    color: #000;
+    text-transform: uppercase;
+  }
+  .price-old {
+    color: #d9d9d9;
+  }
+  .price-save {
+    color: #c6474b;
+    font-size: 10px;
+  }
+  .product-description {
+    color: #000;
+    letter-spacing: 0.7px;
+    margin-top: 16px;
+    font: 400 14px/20px Montserrat, sans-serif;
+  }
+  .tag-container {
+    display: flex;
+    margin-top: 22px;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+    color: #818181;
+    font-weight: 400;
+    letter-spacing: 0.7px;
+    line-height: 1;
+  }
+  .add-cart-button {
+    align-self: stretch;
+    border-radius: 5px;
+    background-color: #c6474b;
+    margin-top: 22px;
+    width: 236px;
+    max-width: 100%;
+    padding: 10px;
+    gap: 10px;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .accordion-section {
+    display: flex;
+    margin-top: 62px;
+    width: 550px;
+    max-width: 100%;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  .accordion-header {
+    border: 1px solid #000;
+    display: flex;
+    padding: 12px 19px;
+    align-items: center;
+    gap: 10px;
+    color: #000;
+    justify-content: space-between;
+    cursor: pointer;
+    font: 700 14px Montserrat, sans-serif;
+  }
+  .accordion-title {
+    flex-grow: 1;
+  }
+  .accordion-content {
+    border: 1px solid #000;
+    padding: 16px;
+    color: #000;
+    font: 14px/1.5 Montserrat, sans-serif;
+  }
 </style>
 
 {% schema %}
