@@ -8,29 +8,49 @@
 
 
 <style>
-  .header {
+.header {
     align-self: center;
     display: flex;
     width: 100%;
     max-width: 1120px;
     gap: 20px;
+    color: #fff;
+    letter-spacing: 0.4px;
+    flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 20px;
     font: 400 8px/20px Montserrat, sans-serif;
+    padding: 0 20px;
   }
 
   .logo {
     aspect-ratio: 3.5;
     object-fit: contain;
+    object-position: center;
     width: 161px;
-    max-width: 100%;
   }
 
-  .nav-menu {
+  .cart-container {
     display: flex;
     flex-direction: column;
     align-items: start;
     margin: auto 0;
+  }
+
+  .cart-badge {
+    border-radius: 9999px;
+    background-color: #000;
+    z-index: 10;
+    height: 16px;
+    padding: 0 6px;
+    color: #fff;
+  }
+
+  .cart-icon {
+    border-radius: 2px;
+    background-color: #d9d9d9;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
   }
 </style>
 {% schema %}
