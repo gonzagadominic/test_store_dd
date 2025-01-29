@@ -153,6 +153,7 @@
   .banner-content {
      margin-bottom: -10em;
     display:flex;
+    margin-left:0em;
   }
 
 }
