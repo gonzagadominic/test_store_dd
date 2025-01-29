@@ -37,11 +37,11 @@
         <div class="featured-product__description">
 
           {%- assign words = section.settings.product.description | split: ' ' -%}
-{%- if words.size > 55 -%}
-  {{ words | slice: 0, 55 | join: ' ' }}...
-{%- else -%}
-  {{ product.description }}
-{%- endif -%}
+          {%- if words.size > 55 -%}
+            {{ words | slice: 0, 55 | join: ' ' }}...
+          {%- else -%}
+            {{ product.description }}
+          {%- endif -%}
 
         </div>
 
@@ -77,7 +77,7 @@
             aria-expanded="false"
             aria-controls="materials-content-{{ section.id }}"
           >
-            <span>Materials</span>
+            <span style="text-transform: uppercase;">Materials</span>
             <span class="featured-product__accordion-icon" aria-hidden="true">+</span>
           </button>
           <div 
