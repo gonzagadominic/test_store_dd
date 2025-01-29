@@ -77,22 +77,30 @@
 }
 
 .banner-section {
-    widh:100%;
- height: 75vh; /* Set height to 75% of viewport */
-    min-height: 350px; /* Ensures a minimum height for small screens */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 471px;
+  display: flex;
+  align-items: center;
 }
 
 .banner-container {
- height: 100%; /* Make sure child elements take full height */
-    padding: 0 20px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 0px;
 }
 
 .banner-bg {
-   height: 100%;
-    object-fit: cover;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
 .banner-content {
@@ -102,7 +110,7 @@
   width: 100%;
   padding: 10px;
   margin-bottom: -10em;
-  margin-left: 22em;
+  margin-left: 17em;
 }
 
 .banner-text-wrapper {
