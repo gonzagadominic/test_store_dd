@@ -163,6 +163,12 @@
     gap: 10px;
   }
 
+  .hero-container {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+
   .hero-text-wrapper {
     align-items: center;
   }
