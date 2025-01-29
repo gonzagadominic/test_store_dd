@@ -108,7 +108,8 @@
   max-width: 352px;
   width: 100%;
   padding: 10px;
-  /* margin-bottom: -10em; */
+    bottom: 30%;
+    left: 5%;
   margin-left: 17em;
 }
 
