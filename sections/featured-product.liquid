@@ -117,7 +117,7 @@
   // Get form data
   const variantId = document.getElementById('product-variants').value;
   const quantity = 1;
-
+  document.getElementById('add-button').textContent = 'Adding to Cart...';
   // Prepare data for the Ajax request
   const formData = {
     id: variantId,
