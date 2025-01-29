@@ -156,9 +156,11 @@
     text-align: center;
   }
 
-  .cta-button {
-      align-items: center;
-    text-align: center;
+.cta-button {
+    margin-top: 16px; /* Adds some space above the button */
+    width: auto;
+    max-width: 200px; /* Optional: limits max width on small screens */
+    padding: 10px;
   }
 
   .banner-content {
