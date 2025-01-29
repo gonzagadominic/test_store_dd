@@ -294,7 +294,8 @@
   transition: transform 0.3s ease;
 }
 
-.featured-product__accordion-trigger[aria-expanded="true"] .featured-product__accordion-icon {
+.featured-product__accordion-trigger[aria-expanded="true"]
+  .featured-product__accordion-icon {
   transform: rotate(45deg);
 }
 
@@ -303,7 +304,7 @@
   border: 1px solid #000;
   margin-top: -1px;
   font: 400 14px/1.5 Montserrat, sans-serif;
-  display:none;
+  display: none;
 }
 
 @media (max-width: 991px) {
@@ -328,58 +329,60 @@
 }
 
 footer-section {
-    width: 100%;
-    margin-top: 79px;
-    font: 400 14px/1.5 Montserrat, sans-serif;
-  }
+  width: 100%;
+  margin-top: 79px;
+  font: 400 14px/1.5 Montserrat, sans-serif;
+}
 
-  .footer-wrapper {
-    width: 100%;
-    padding: 31px 20px;
-    border-top: 1px solid #d9d9d9;
-  }
+.footer-wrapper {
+  width: 100%;
+  padding: 31px 20px;
+  border-top: 1px solid #d9d9d9;
+}
 
-  .footer-content {
-    max-width: 1120px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
+.footer-content {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
-  .footer-info {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
-  .footer-contact {
-    font-weight: 700;
-    margin: 0;
-      font: 700 14px/1.5 Montserrat, sans-serif;
-  }
+.footer-contact {
+  font-weight: 700;
+  margin: 0;
+  font: 700 14px/1.5 Montserrat, sans-serif;
+}
 
-  .footer-email {
-    color: #2bd896;
-    text-decoration: none;
-  }
+.footer-email {
+  color: #2bd896;
+  text-decoration: none;
+  font: 700 14px/1.5 Montserrat, sans-serif;
+}
 
-  .footer-copyright {
-    margin: 0;
-  }
+.footer-copyright {
+  margin: 0;
+  font: 700 14px/1.5 Montserrat, sans-serif;
+}
 
-  .footer-links {
-    display: flex;
-    gap: 27px;
-  }
+.footer-links {
+  display: flex;
+  gap: 27px;
+  font: 700 14px/1.5 Montserrat, sans-serif;
+}
 
-  .footer-links a {
-    color: #2bd896;
-    text-decoration: none;
-      font: 700 14px/1.5 Montserrat, sans-serif;
-  }
-
+.footer-links a {
+  color: #2bd896;
+  text-decoration: none;
+  font: 700 14px/1.5 Montserrat, sans-serif;
+}
 
 @media (max-width: 991px) {
   .banner-container {
