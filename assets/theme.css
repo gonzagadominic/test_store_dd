@@ -347,9 +347,11 @@
 }
 
 .featured-product__accordion {
- display: grid;
-  place-items: center;      /* Centers both horizontally and vertically */
-    margin-top: 40px;
+display: grid;
+    place-items: center;
+    max-width: 40em;
+    margin: auto;
+    transform: translateY(20px);
 }
 
 .featured-product__accordion-trigger {
