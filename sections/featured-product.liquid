@@ -102,7 +102,31 @@
     </div>
   </div>
 </section>
+<script>
+  class FeaturedProduct extends HTMLElement {
+  constructor() {
+    super();
+    this.accordionTriggers = this.querySelectorAll('.featured-product__accordion-trigger');
+    this.init();
+  }
 
+  init() {
+    this.accordionTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => this.toggleAccordion(trigger));
+    });
+  }
+
+  toggleAccordion(trigger) {
+    const content = document.getElementById(trigger.getAttribute('aria-controls'));
+    const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+    
+    trigger.setAttribute('aria-expanded', !isExpanded);
+    content.hidden = isExpanded;
+  }
+}
+
+customElements.define('featured-product', FeaturedProduct);
+</script>
 {% schema %}
 {
   "name": "Featured Product",
