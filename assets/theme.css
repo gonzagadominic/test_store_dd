@@ -347,9 +347,9 @@
 }
 
 .featured-product__accordion {
-  margin-top: 40px;
-  width: 100%;
-  max-width: 550px;
+ display: grid;
+  place-items: center;      /* Centers both horizontally and vertically */
+  height: 100vh; 
 }
 
 .featured-product__accordion-trigger {
