@@ -1,7 +1,7 @@
 .focus-none{
-    background-color: #fff;
-    display: flex;
-    padding: 22px 0 0;
+   display: flex;
+    margin-top: 22px;
+    width: 100%;
     flex-direction: column;
-    overflow: hidden;
+    align-items: center;
 }
