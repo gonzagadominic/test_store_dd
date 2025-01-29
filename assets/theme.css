@@ -1,3 +1,13 @@
+ .main-container {
+    background-color: #fff;
+    display: flex;
+    padding: 22px 0 0;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+  }
+
 .main-content{
     display: flex;
     flex-direction: column;
