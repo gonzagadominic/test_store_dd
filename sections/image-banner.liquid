@@ -1,10 +1,10 @@
 <div class="hero-container" role="banner" aria-label="Hero section">
-  <img 
-    src="/images/hero-background.jpg" 
-    alt="Hero background" 
-    class="hero-background" 
-    aria-hidden="true"
-  />
+
+  {% if section.settings.image %}
+  <img src="{{ section.settings.image | img_url: 'master' }}" alt="Selected image"  height="100" width="100"/>
+{% else %}
+  <p>No image selected</p>
+{% endif %}
   <div class="content-wrapper">
     <div class="content-inner">
       <div class="highlight-text" aria-label="Company expertise">
