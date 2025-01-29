@@ -4,10 +4,10 @@
       <div class="featured-product__media">
         {%- if section.settings.product.featured_media -%}
           <div class="featured-product__image">
-            {{ section.settings.product.featured_media | img_url: 'master' | img_tag: 
-              section.settings.product.featured_media.alt,
-              'featured-product__img',
-              loading: 'lazy'
+            {{
+              section.settings.product.featured_media
+              | img_url: 'master'
+              | img_tag: section.settings.product.featured_media.alt, 'featured-product__img', loading: 'lazy'
             }}
           </div>
         {%- endif -%}
@@ -15,7 +15,7 @@
 
       <div class="featured-product__details">
         <h2 class="featured-product__title">{{ section.settings.product.title }}</h2>
-        
+
         <div class="featured-product__price-wrapper">
           <div class="featured-product__price">
             <span class="featured-product__current-price">
@@ -40,20 +40,30 @@
 
         <div class="featured-product__tags">
           {%- for tag in section.settings.product.tags -%}
-            <span class="featured-product__tag">&#9675; {{ tag }}</span>
+            {%- if forloop.first == false -%}&bull;{%- endif -%}
+            <span class="featured-product__tag">{{ tag }}</span>
           {%- endfor -%}
         </div>
 
-        <form method="post" action="/cart/add" id="product-form-{{ section.id }}" accept-charset="UTF-8" class="featured-product__form" enctype="multipart/form-data">
+        <form
+          method="post"
+          action="/cart/add"
+          id="product-form-{{ section.id }}"
+          accept-charset="UTF-8"
+          class="featured-product__form"
+          enctype="multipart/form-data"
+        >
           <input type="hidden" name="form_type" value="product">
           <input type="hidden" name="utf8" value="✓">
           <input type="hidden" name="id" value="{{ section.settings.product.selected_or_first_available_variant.id }}">
-          
-          <button 
-            type="submit" 
-            name="add" 
+
+          <button
+            type="submit"
+            name="add"
             class="featured-product__submit"
-            {% unless section.settings.product.available %} disabled{% endunless %}
+            {% unless section.settings.product.available %}
+              disabled
+            {% endunless %}
           >
             <span>
               {%- if section.settings.product.available -%}
@@ -65,7 +75,7 @@
           </button>
         </form>
         <div class="featured-product__accordion">
-          <button 
+          <button
             class="featured-product__accordion-trigger"
             aria-expanded="false"
             aria-controls="materials-content-{{ section.id }}"
@@ -73,15 +83,15 @@
             <span>Materials</span>
             <span class="featured-product__accordion-icon" aria-hidden="true">+</span>
           </button>
-          <div 
+          <div
             id="materials-content-{{ section.id }}"
             class="featured-product__accordion-content"
             hidden
           >
-            {{    section.settings.product.metafields.namespace1.materials }}
+            {{ section.settings.product.metafields.namespace1.materials }}
           </div>
 
-          <button 
+          <button
             class="featured-product__accordion-trigger"
             aria-expanded="false"
             aria-controls="delivery-content-{{ section.id }}"
@@ -89,12 +99,12 @@
             <span>Delivery Information</span>
             <span class="featured-product__accordion-icon" aria-hidden="true">+</span>
           </button>
-          <div 
+          <div
             id="delivery-content-{{ section.id }}"
             class="featured-product__accordion-content"
             hidden
           >
-            {{    section.settings.product.metafields.namespace1.delivery_information }}
+            {{ section.settings.product.metafields.namespace1.delivery_information }}
           </div>
         </div>
       </div>
