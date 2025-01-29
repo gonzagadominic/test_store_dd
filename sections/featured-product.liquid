@@ -7,9 +7,9 @@
           <span class="featured-product-name">{{product.title}}</span>
           <div class="group">
             <div class="dollar-sign">
-              <span class="dom-nbsp">${{ product.price | money}} </span><span class="dollar">$ {{ product.compare_at_price | money }}</span>
+              <span class="dom-nbsp">{{ product.price | money}} </span><span class="dollar">{{ product.compare_at_price | money }}</span>
             </div>
-            <span class="save-three">save $ {{ product.compare_at_price| minus: product.price }}</span>
+            <span class="save-three">save {{ product.compare_at_price| minus: product.price }}</span>
             <div class="line"></div>
           </div>
           <span class="product-description"
