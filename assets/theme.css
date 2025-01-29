@@ -164,12 +164,13 @@
   }
 
   .banner-content {
-  display: flex;
+    display: flex;
     flex-direction: column;
-    align-items: center; /* Centers the content horizontally */
-    justify-content: center; /* Centers the content vertically */
-    text-align: center; /* Ensures text is centered */
+    justify-content: center; /* Centers content vertically */
+    align-items: center;     /* Centers content horizontally */
+    text-align: center;      /* Ensures text is centered */
     width: 100%;
+    height: 100%;            /* Ensure it takes full height of its parent */
       margin-left:0;
   }
 
