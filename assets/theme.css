@@ -368,6 +368,14 @@ display: grid;
   text-align: left;
 }
 
+.featured-product__accordion-content {
+    display: none; /* Hide content initially */
+  }
+  
+  .featured-product__accordion-content[hidden] {
+    display: block; /* Show content when not hidden */
+  }
+
 .featured-product__accordion-trigger:not(:first-child) {
   margin-top: -1px;
 }
