@@ -109,6 +109,54 @@
   </div>
 </section>
 
+<script>
+  document.getElementById('product-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Get form data
+  const variantId = document.getElementById('product-variants').value;
+  const quantity = document.getElementById('quantity').value;
+
+  // Prepare data for the Ajax request
+  const formData = {
+    id: variantId,
+    quantity: quantity
+  };
+
+  // Make the Ajax request to Shopify's cart API
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Show a notification or update cart information
+    showCartNotification(data);
+  })
+  .catch(error => {
+    console.error('Error adding to cart:', error);
+  });
+});
+
+function showCartNotification(data) {
+  // Display a cart notification or update cart contents
+  const notification = document.getElementById('cart-notification');
+  notification.style.display = 'block';
+
+  // Optionally, you can also update the cart icon or display more detailed cart info
+  console.log('Cart updated:', data);
+  
+  // Hide the notification after a few seconds
+  setTimeout(() => {
+    notification.style.display = 'none';
+  }, 3000);
+}
+
+</script>
+
 {% schema %}
 {
   "name": "Featured Product",
