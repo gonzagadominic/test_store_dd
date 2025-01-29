@@ -1,23 +1,37 @@
 <header class="header">
-  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/fce88aeb17d2d7bc058376c5dae1dfe5da682f407399e3c277939467893220a1?apiKey=874c8ab8215f4da29d36330b51c2d70b&" alt="Company Logo" class="logo">
-    <nav class="nav-menu"></nav>
+  <img
+    src="https://cdn.builder.io/api/v1/image/assets/TEMP/fce88aeb17d2d7bc058376c5dae1dfe5da682f407399e3c277939467893220a1?apiKey=874c8ab8215f4da29d36330b51c2d70b&"
+    alt="Company Logo"
+    class="logo"
+  >
+  <nav class="nav-menu"></nav>
 </header>
 
-
 <style>
-
   .header {
-  align-self: center;
-  display: flex;
-  width: 100%;
-  max-width: 1120px;
-  gap: 20px;
-  justify-content: space-between;
-  padding: 0 20px;
-  font: 400 8px/20px Montserrat, sans-serif;
-}
+    align-self: center;
+    display: flex;
+    width: 100%;
+    max-width: 1120px;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 0 20px;
+    font: 400 8px/20px Montserrat, sans-serif;
+  }
 
-  
+  .logo {
+    aspect-ratio: 3.5;
+    object-fit: contain;
+    width: 161px;
+    max-width: 100%;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: auto 0;
+  }
 </style>
 {% schema %}
 {
