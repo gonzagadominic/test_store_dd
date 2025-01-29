@@ -1,261 +1,132 @@
-{% assign product = section.settings.product %}
-<div class="product-section">
-  <div class="product-container">
-    <div class="product-layout">
-      <div class="product-image-col">
-        <div class="product-image" role="img" aria-label="Featured Product Image"></div>
+<section class="featured-product" data-section-id="{{ section.id }}" data-section-type="featured-product">
+  <div class="featured-product__container">
+    <div class="featured-product__grid">
+      <div class="featured-product__media">
+        {%- if section.settings.product.featured_media -%}
+          <div class="featured-product__image">
+            {{ section.settings.product.featured_media | img_url: 'master' | img_tag: 
+              section.settings.product.featured_media.alt,
+              'featured-product__img',
+              loading: 'lazy'
+            }}
+          </div>
+        {%- endif -%}
       </div>
-      <div class="product-info-col">
-        <div class="product-info-wrapper">
-          <div class="product-details">
-            <h2 class="product-name">Featured Product name</h2>
-            <div class="price-container">
-              <div class="price-wrapper">
-                <span class="price">$12<span style="color: #d9d9d9">$15</span></span>
-                <div class="price-divider"></div>
-              </div>
-              <span class="savings">save $3</span>
-            </div>
-            <p class="product-description">
-              Place the product descipription here.<br>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis augue tempus, vestibulum neque eu,
-              tempor ex. Quisque pulvinar volutpat mi, vitae aliquet nisl tincidunt vitae. Nulla porta massa neque, vel
-              tincidunt ante vestibulum quis. Sed feugiat auctor ipsum. Orci varius natoque penatibus et magnis dis
-              parturient montes, nascetur ridiculus mus.
-            </p>
+
+      <div class="featured-product__details">
+        <h2 class="featured-product__title">{{ section.settings.product.title }}</h2>
+        
+        <div class="featured-product__price-wrapper">
+          <div class="featured-product__price">
+            <span class="featured-product__current-price">
+              {{ section.settings.product.price | money }}
+            </span>
+            {%- if section.settings.product.compare_at_price > section.settings.product.price -%}
+              <span class="featured-product__compare-price">
+                {{ section.settings.product.compare_at_price | money }}
+              </span>
+            {%- endif -%}
           </div>
-          <div class="tag-container">
-            <span>tag 1</span>
-            <span>tag 2</span>
+          {%- if section.settings.product.compare_at_price > section.settings.product.price -%}
+            <span class="featured-product__save-text">
+              save {{ section.settings.product.compare_at_price | minus: section.settings.product.price | money }}
+            </span>
+          {%- endif -%}
+        </div>
+
+        <div class="featured-product__description">
+          {{ section.settings.product.description }}
+        </div>
+
+        <div class="featured-product__tags">
+          {%- for tag in section.settings.product.tags -%}
+            <span class="featured-product__tag">{{ tag }}</span>
+          {%- endfor -%}
+        </div>
+
+        <form method="post" action="/cart/add" id="product-form-{{ section.id }}" accept-charset="UTF-8" class="featured-product__form" enctype="multipart/form-data">
+          <input type="hidden" name="form_type" value="product">
+          <input type="hidden" name="utf8" value="✓">
+          <input type="hidden" name="id" value="{{ section.settings.product.selected_or_first_available_variant.id }}">
+          
+          <button 
+            type="submit" 
+            name="add" 
+            class="featured-product__submit"
+            {% unless section.settings.product.available %} disabled{% endunless %}
+          >
+            <span>
+              {%- if section.settings.product.available -%}
+                {{ 'products.product.add_to_cart' | t }}
+              {%- else -%}
+                {{ 'products.product.sold_out' | t }}
+              {%- endif -%}
+            </span>
+          </button>
+        </form>
+
+        <div class="featured-product__accordion">
+          <button 
+            class="featured-product__accordion-trigger"
+            aria-expanded="false"
+            aria-controls="materials-content-{{ section.id }}"
+          >
+            <span>{{ 'products.product.materials' | t }}</span>
+            <span class="featured-product__accordion-icon" aria-hidden="true">+</span>
+          </button>
+          <div 
+            id="materials-content-{{ section.id }}"
+            class="featured-product__accordion-content"
+            hidden
+          >
+            {{ section.settings.materials_content }}
           </div>
-          <button class="add-cart-btn">ADD TO CART</button>
+
+          <button 
+            class="featured-product__accordion-trigger"
+            aria-expanded="false"
+            aria-controls="delivery-content-{{ section.id }}"
+          >
+            <span>{{ 'products.product.delivery' | t }}</span>
+            <span class="featured-product__accordion-icon" aria-hidden="true">+</span>
+          </button>
+          <div 
+            id="delivery-content-{{ section.id }}"
+            class="featured-product__accordion-content"
+            hidden
+          >
+            {{ section.settings.delivery_content }}
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="accordion-section">
-    <button class="accordion-header" aria-expanded="false" aria-controls="materials-content">
-      <span class="accordion-title">MATERIALS</span>
-      <img
-        loading="lazy"
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/62a59bcd4fd3ced9c924d1c8a7311edc55b89104ff785822e0fe2436bf735ec1?placeholderIfAbsent=true&apiKey=874c8ab8215f4da29d36330b51c2d70b"
-        class="accordion-icon"
-        alt=""
-      >
-    </button>
-    <div id="materials-content" class="accordion-content" hidden>
-      <div class="accordion-text"></div>
-    </div>
-    <button class="accordion-header" aria-expanded="false" aria-controls="delivery-content">
-      <span class="accordion-title">Delivery Information</span>
-      <img
-        loading="lazy"
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/6cf83719a47095859361cf62bef70c2afe08b49ff8053d9ca4c0f57b5eb3a74f?placeholderIfAbsent=true&apiKey=874c8ab8215f4da29d36330b51c2d70b"
-        class="accordion-icon"
-        alt=""
-      >
-    </button>
-  </div>
-</div>
-<style>
-  .product-section {
-      display: flex;
-      margin-top: 79px;
-      width: 1120px;
-      max-width: 100%;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .product-container {
-      width: 100%;
-    }
-
-    .product-layout {
-      gap: 20px;
-      display: flex;
-    }
-
-    .product-image-col {
-      display: flex;
-      flex-direction: column;
-      line-height: normal;
-      width: 59%;
-    }
-
-    .product-image {
-      background-color: #d9d9d9;
-      width: 645px;
-      max-width: 100%;
-      height: 379px;
-      margin: 0 auto;
-    }
-
-    .product-info-col {
-      display: flex;
-      flex-direction: column;
-      line-height: normal;
-      width: 41%;
-      margin-left: 20px;
-    }
-
-    .product-info-wrapper {
-      display: flex;
-      width: 100%;
-      flex-direction: column;
-      align-self: stretch;
-      align-items: start;
-      font-family: Montserrat, sans-serif;
-      font-weight: 700;
-      margin: auto 0;
-    }
-
-    .product-details {
-      align-self: stretch;
-      display: flex;
-      width: 100%;
-      max-width: 455px;
-      flex-direction: column;
-      font-family: Poppins, sans-serif;
-    }
-
-    .product-name {
-      color: #000;
-      font-size: 22px;
-      text-transform: uppercase;
-    }
-
-    .price-container {
-      display: flex;
-      margin-top: 16px;
-      width: 109px;
-      max-width: 100%;
-      gap: 7px;
-    }
-
-    .price-wrapper {
-      display: flex;
-      font-size: 14px;
-      color: #000;
-      text-transform: uppercase;
-    }
-
-    .price {
-      flex-grow: 1;
-    }
-
-    .price-divider {
-      align-self: start;
-      margin-top: 10px;
-      width: 30px;
-      height: 1px;
-      border: 1px solid #d9d9d9;
-    }
-
-    .savings {
-      color: #c6474b;
-      font-size: 10px;
-      margin: auto 0;
-    }
-
-    .product-description {
-      color: #000;
-      letter-spacing: 0.7px;
-      margin-top: 16px;
-      font: 400 14px/20px Montserrat, sans-serif;
-    }
-
-    .tag-container {
-      display: flex;
-      margin-top: 22px;
-      align-items: center;
-      gap: 16px;
-      font-size: 14px;
-      color: #818181;
-      font-weight: 400;
-      letter-spacing: 0.7px;
-    }
-
-    .add-cart-btn {
-      border-radius: 5px;
-      background-color: #c6474b;
-      margin-top: 22px;
-      width: 236px;
-      color: #fff;
-      text-transform: uppercase;
-      padding: 10px;
-    }
-
-    .accordion-section {
-      display: flex;
-      margin-top: 62px;
-      width: 550px;
-      max-width: 100%;
-      flex-direction: column;
-    }
-
-    .accordion-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      overflow: hidden;
-      color: #000;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 12px 19px;
-      font: 700 14px Montserrat, sans-serif;
-      border: 1px solid #000;
-    }
-
-    .accordion-title {
-      align-self: stretch;
-      flex-grow: 1;
-      width: 492px;
-    }
-
-    .accordion-icon {
-      aspect-ratio: 1.14;
-      object-fit: contain;
-      object-position: center;
-      width: 8px;
-      align-self: stretch;
-    }
-
-    .accordion-content {
-      z-index: 10;
-      display: flex;
-      min-height: 163px;
-      align-items: center;
-      gap: 10px;
-      overflow: hidden;
-      justify-content: center;
-      padding: 16px 6px;
-      border: 1px solid #000;
-    }
-
-    .accordion-text {
-      align-self: stretch;
-      display: flex;
-      min-height: 131px;
-      min-width: 240px;
-      width: 538px;
-    }
-</style>
+</section>
 
 {% schema %}
 {
-  "name": "Featured product",
+  "name": "Featured Product",
   "settings": [
     {
       "type": "product",
       "id": "product",
       "label": "Product"
+    },
+    {
+      "type": "richtext",
+      "id": "materials_content",
+      "label": "Materials Content"
+    },
+    {
+      "type": "richtext",
+      "id": "delivery_content",
+      "label": "Delivery Content"
     }
   ],
   "presets": [
     {
-      "name": "Featured product"
+      "name": "Featured Product",
+      "category": "Product"
     }
   ]
 }
