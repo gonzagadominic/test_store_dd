@@ -175,6 +175,10 @@
 
     white-space: nowrap;
   }
+
+  .banner-heading{
+    font-size: 12px;
+  }
 }
 
 .featured-product {
